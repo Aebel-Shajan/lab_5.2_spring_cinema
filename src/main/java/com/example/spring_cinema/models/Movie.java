@@ -16,8 +16,7 @@ public class Movie {
     @Column(name = "duration")
     double duration;
 
-    public Movie(long id, String title, double rating, double duration) {
-        this.id = id;
+    public Movie(String title, double rating, double duration) {
         this.title = title;
         this.rating = rating;
         this.duration = duration;
