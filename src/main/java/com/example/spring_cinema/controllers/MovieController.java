@@ -19,10 +19,15 @@ public class MovieController {
     MovieService movieService;
 
     @PostMapping
-    public ResponseEntity<Movie> postMovie() {
+    public ResponseEntity<Movie> initMovie() {
         Movie dummyMovie = new Movie("amongus", 5, 100);
         movieService.addMovieToCinema(dummyMovie);
         return new ResponseEntity<>(dummyMovie, HttpStatus.CREATED);
+    }
+
+    @PostMapping(value = "/addMovie")
+    public void addMovie(@RequestBody Movie movie) {
+        movieService.addMovieToCinema(movie);
     }
 
     @GetMapping
